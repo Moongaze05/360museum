@@ -1,0 +1,143 @@
+.media-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: #2b2a29;
+    /* background-color: #AB2421; */
+    animation-duration: 1.5s;
+    animation-name: turnOn;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes turnOn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.media-picture {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.media-img {
+    max-width: 90vw;
+    max-height: 80vh;
+}
+
+.media-button-cross {
+    position: absolute;
+    left: 97%;
+    top: 2%;
+    background-color: inherit;
+    border: none;
+    fill: white;
+    cursor: pointer;
+}
+
+.media-button-cross:hover {
+    fill: red;
+}
+
+.media-button-cross:active {
+    animation-duration: 1.5s;
+    animation-name: turnOut;
+}
+
+@keyframes turnOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.media-description-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.media-description-text {
+    color: #fefefe;
+    border-left: 13px solid red;
+    padding-left: 15px;
+    align-self: flex-start;
+}
+
+.media-description-audio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.green-audio-player {
+    background-color: #AB2421;
+    width: 100%;
+}
+
+.green-audio-player .controls .controls__slider {
+    height: 12px;
+}
+
+.green-audio-player .slider .gap-progress .pin {
+    height: 18px;
+    width: 18px;
+    border-radius: 9px;
+    background-color: lightslategrey;
+}
+
+.green-audio-player .slider .gap-progress {
+    background-color: #2b2a29;
+}
+
+.green-audio-player .controls .controls__slider .controls__progress .progress__pin {
+    right: -10px;
+    top: -3.5px;
+}
+
+.green-audio-player .volume .volume__controls .volume__slider .volume__progress .volume__pin {
+    left: -6px;
+}
+
+.green-audio-player .controls span {
+    color: white;
+}
+
+.play-pause-btn__icon,
+.volume__speaker {
+    fill: white;
+}
+
+.green-audio-player .volume .volume__button.open path {
+    fill: lightslategrey;
+}
+
+.green-audio-player .volume .volume__controls.bottom {
+    bottom: 40px;
+}
+
+@media (max-width:580px) {
+    .media-description {
+        flex-direction: column;
+    }
+    .media-description-text {
+        align-items: center;
+    }
+    .media-button-cross {
+        left: 94%;
+    }
+}

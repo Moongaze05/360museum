@@ -1,0 +1,20 @@
+@media (max-width:1500px) {
+    .header-flex {
+        max-width: 1180px;
+    }
+    .logo-description {
+        font-size: 50px;
+    }
+    .main-card img {
+        max-width: 350px;
+    }
+    .play {
+        width: 100px;
+        top: 60px;
+        left: 125px;
+    }
+    .main-card-city {
+        bottom: 10px;
+        left: 135px;
+    }
+}
