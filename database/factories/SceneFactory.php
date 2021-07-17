@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Museum;
+use App\Models\Scene;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use JetBrains\PhpStorm\ArrayShape;
 
-class MuseumFactory extends Factory
+class SceneFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Museum::class;
+    protected $model = Scene::class;
 
     /**
      * Define the model's default state.
@@ -22,17 +22,13 @@ class MuseumFactory extends Factory
      */
     #[ArrayShape([
         'title' => "string",
-        'preview' => "string",
-        'logo' => "string",
-        'map' => "string",
+        'panorama' => "string"
     ])]
     public function definition(): array
     {
         return [
-            'title' => $this->faker->realText(maxNbChars: 16),
-            'preview' => $this->faker->imageUrl,
-            'logo' => $this->faker->imageUrl,
-            'map' => $this->faker->imageUrl,
+            'title' => $this->faker->realText('16'),
+            'panorama' => $this->faker->imageUrl
         ];
     }
 }

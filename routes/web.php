@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Museums;
+use App\Http\Controllers\Viewer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Museums::class);
+Route::get('/', Museums::class)
+    ->name('museums');
+
+Route::get('/{museum}', Viewer::class)
+    ->name('museum');
+

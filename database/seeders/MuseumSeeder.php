@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Museum;
+use App\Models\Scene;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,9 @@ class MuseumSeeder extends Seeder
     {
         return Museum::factory()
             ->count(2)
+            ->has(
+                Scene::factory()->count(1)
+            )
             ->create();
     }
 }

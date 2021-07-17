@@ -285,19 +285,14 @@
     font-family: Gotham Pro, system-ui;
 }
 
-html {
-    height: 100%;
-}
-
 body {
     background-image: url(/images/Background.svg?d24f99f22dc602c0bd48939cb929a176);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.header {
-    margin-top: 30px;
-}
+.header {}
 
 .header-container {
     min-width: 1480px;
@@ -340,7 +335,7 @@ body {
 }
 
 .main {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .main-container {

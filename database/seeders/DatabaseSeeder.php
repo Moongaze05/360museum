@@ -13,9 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): DatabaseSeeder
     {
-        return $this->call([
-            MuseumSeeder::class,
-        ]);
+        return $this->call(Real\DatabaseSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }
