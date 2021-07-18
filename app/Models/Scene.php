@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property string title
@@ -16,6 +17,11 @@ class Scene extends Model
 
     public function museum(): BelongsTo
     {
-        return $this->belongsTo(Museum::class);
+        return $this->belongsTo(related: Museum::class);
+    }
+
+    public function hotspots(): HasMany
+    {
+        return $this->hasMany(related: Hotspot::class);
     }
 }

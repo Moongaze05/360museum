@@ -41,22 +41,24 @@
                     "type": "equirectangular",
                     "panorama": "{{ $scene->panorama }}",
                     // "hotSpotDebug": "true",
-                    "hotSpots": [{
-                        "pitch": -12,
-                        "yaw": 170,
-                        "type": "info",
-                        "text": `"aboba" <br/> govno sjelo zhopu`,
-                        "clickHandlerFunc": function() {
-                            let mediaWindow = document.getElementById('panorama');
-                            mediaWindow.insertAdjacentHTML('afterbegin', description);
+                    "hotSpots": [
+                        @foreach($scene->hotspots() as $hotspot)
+                        {
+                            "pitch": {{ $hotspot->pitch }},
+                            "yaw": {{ $hotspot->yaw }},
+                            "type": "{{ $hotspot->type }}",
+                            "text": `"aboba" <br/> govno sjelo zhopu`,
+                            "clickHandlerFunc": function() {
+                                let mediaWindow = document.getElementById('panorama');
+                                mediaWindow.insertAdjacentHTML('afterbegin', description);
 
-                            function audioPlay() {
-                                new GreenAudioPlayer('.media-description-custom-audio');
-                                console.log('gav')
-                            }
-                            audioPlay();
+                                function audioPlay() {
+                                    new GreenAudioPlayer('.media-description-custom-audio');
+                                }
+                                audioPlay();
+                                },
                         },
-                    },
+                        @endforeach
                         {
                             "pitch": -10,
                             "yaw": -50,

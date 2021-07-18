@@ -17,11 +17,11 @@ class CreateHotspotsTable extends Migration
             $table->id();
             $table->string('scene_id');
             $table->string('title');
-            $table->enum('type', ['info', 'pointer'])->default('info');
+            $table->enum('type', ['info', 'scene'])->default('info');
             $table->double('pitch');
             $table->double('yaw');
             $table->string('pointer_target')->nullable();
-            $table->string('info_document')->nullable();
+            $table->string('document_id')->nullable();
             $table->timestamps();
         });
     }
