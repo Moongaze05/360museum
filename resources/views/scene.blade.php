@@ -210,7 +210,7 @@
                 <path fill="rgb(255,255,255)" fill-opacity="0.7" d="M 65.5,65.5 L 23.34187850181081,17.347193313951905 A 64,64 0 0 1 107.65812149818916,17.347193313951877 Z"></path>
             </svg>
         </div>
-        <div class="point" id="b-scene">
+        <div class="point" id="b-scene" style="position: absolute; top: 111px; left: 111px">
             <input type="radio" name="radio-group" id="b-radio">
             <label for="b-radio">2</label>
         </div>

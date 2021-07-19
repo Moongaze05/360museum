@@ -9,6 +9,12 @@ use App\Orchid\Screens\Examples\ExampleFieldsScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\Museums\DocumentScreen;
+use App\Orchid\Screens\Museums\DocumentsListScreen;
+use App\Orchid\Screens\Museums\MuseumScreen;
+use App\Orchid\Screens\Museums\MuseumsListScreen;
+use App\Orchid\Screens\Museums\SceneScreen;
+use App\Orchid\Screens\Museums\ScenesListScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -106,5 +112,12 @@ Route::screen('example-charts', ExampleChartsScreen::class)->name('platform.exam
 Route::screen('example-editors', ExampleTextEditorsScreen::class)->name('platform.example.editors');
 Route::screen('example-cards', ExampleCardsScreen::class)->name('platform.example.cards');
 Route::screen('example-advanced', ExampleFieldsAdvancedScreen::class)->name('platform.example.advanced');
+
+Route::screen('museums', MuseumsListScreen::class)->name('museums.all');
+Route::screen('museum/{museum?}', MuseumScreen::class)->name('museums.edit');
+Route::screen('scenes', ScenesListScreen::class)->name('museums.scenes.all');
+Route::screen('scene/{scene?}', SceneScreen::class)->name('museums.scenes.edit');
+Route::screen('documents', DocumentsListScreen::class)->name('museums.documents.all');
+Route::screen('document/{document?}', DocumentScreen::class)->name('museums.documents.edit');
 
 //Route::screen('idea', 'Idea::class','platform.screens.idea');

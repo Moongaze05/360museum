@@ -20,6 +20,8 @@ class CreateHotspotsTable extends Migration
             $table->enum('type', ['info', 'scene'])->default('info');
             $table->double('pitch');
             $table->double('yaw');
+            $table->unsignedBigInteger('map_x');
+            $table->unsignedBigInteger('map_y');
             $table->string('pointer_target')->nullable();
             $table->string('document_id')->nullable();
             $table->timestamps();
