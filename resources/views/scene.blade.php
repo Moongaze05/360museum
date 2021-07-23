@@ -177,9 +177,9 @@
     </div>
 </div>
 <script>
-    if (/iPhone/ig.test(navigator.userAgent)) {
-        document.getElementById("panorama").style.maxHeight = "86.6vh";
-    }
+    // if (/iPhone/ig.test(navigator.userAgent)) {
+    //     document.getElementById("panorama").style.maxHeight = "86.6vh";
+    // }
     const map = document.querySelector('.map');
     function toggleMap () {
         map.classList.toggle('map-toggle-on');
