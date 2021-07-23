@@ -15,11 +15,18 @@
         max-width: 80vw;
     }
     .play {
-        left: 100px;
+        left: 120px;
         top: 50px;
     }
     .main-card-city {
         left: 121px;
+    }
+}
+
+@media (max-width: 375px) {
+    .play {
+        left: 100px;
+        top: 40px;
     }
 }
 
