@@ -101,7 +101,7 @@ html, body {
     width: 350px;
     height: 400px;
     z-index: 2;
-    opacity: 0.6;
+    opacity: 0.8;
     background-size: contain;
     background-position: center;
     background-image: url(../../storage/app/public/assets/test.png);
