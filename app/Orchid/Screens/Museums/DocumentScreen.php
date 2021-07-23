@@ -3,7 +3,13 @@
 namespace App\Orchid\Screens\Museums;
 
 use App\Models\Document;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use JetBrains\PhpStorm\ArrayShape;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
 
@@ -26,15 +32,19 @@ class DocumentScreen extends Screen
     /**
      * Query data.
      *
+     * @param Document $document
      * @return array
      */
+    #[ArrayShape(['document' => "\App\Models\Document"])]
     public function query(Document $document): array
     {
         if ($document->exists) {
             $this->description = 'Редактирование документа';
         }
 
-        return [];
+        return [
+            'document' => $document
+        ];
     }
 
     /**
@@ -44,7 +54,19 @@ class DocumentScreen extends Screen
      */
     public function commandBar(): array
     {
-        return [];
+        return [
+            Button::make('Сохранить')
+                ->icon('save')
+                ->method('save')
+        ];
+    }
+
+    public function save(Document $document, Request $request): RedirectResponse
+    {
+        $document->update($request->input('document'));
+        $document->save();
+
+        return redirect()->route('museums.documents.edit', $document);
     }
 
     /**
@@ -56,7 +78,20 @@ class DocumentScreen extends Screen
     {
         return [
             Layout::rows([
-                Input::make('')
+                Input::make('document.title')
+                    ->title('Заголовок')
+                    ->help('Заголовок, отображаемый в просмотрщике')
+                    ->placeholder('Документ #123'),
+                Input::make('document.author')
+                    ->title('Автор')
+                    ->help('Автор документа (например, картины)')
+                    ->placeholder('Василий Васильевич'),
+                Picture::make('document.image')
+                    ->title('Изображение')
+                    ->help('Изображение документа'),
+                Upload::make('document.audio')
+                    ->title('Аудиозапись')
+                    ->help('Аудиозапись к документу'),
             ])
         ];
     }
