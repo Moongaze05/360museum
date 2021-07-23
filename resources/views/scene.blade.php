@@ -19,14 +19,14 @@
             "default": {
                 "load": true,
                 "author": "easycg",
-                "firstScene": "scene-{{ $museum->scenes()->first()->getKey() }}",
+                "firstScene": "scene-{{ $museum->scenes->sortBy('id')->first()->getKey() }}",
                 "sceneFadeDuration": 2000,
                 "autoLoad": true,
                 "autoRotate": 0,
                 // "autoRotateInactivityDelay": 5000,
                 "yaw": 180,
                 // "hfov": 80,
-                "previewTitle": "{{ $museum->scenes()->first()->title }}",
+                "previewTitle": "{{ $museum->scenes->sortBy('id')->first()->title }}",
                 "showControls": true,
                 "showZoomCtrl": false,
                 "showFullscreenCtrl": false,
@@ -34,7 +34,7 @@
             },
 
             "scenes": {
-                @foreach($museum->scenes()->get() as $scene)
+                @foreach($museum->scenes->sortBy('id') as $scene)
                 "scene-{{ $scene->getKey() }}": {
                     "title": "{{ $scene->title }}",
                     "sceneId": "{{ $scene->getKey() }}",
