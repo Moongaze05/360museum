@@ -13,14 +13,14 @@ class DocumentsListScreen extends Screen
      *
      * @var string
      */
-    public $name = 'DocumentsListScreen';
+    public $name = 'Документы';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'DocumentsListScreen';
+    public $description = 'Список загруженных документов';
 
     /**
      * Query data.
