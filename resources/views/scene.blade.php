@@ -19,11 +19,11 @@
             "default": {
                 "load": true,
                 "author": "easycg",
-                "firstScene": "{{ $museum->scenes()->first()->getKey() }}",
+                "firstScene": "scene-{{ $museum->scenes()->first()->getKey() }}",
                 "sceneFadeDuration": 2000,
                 "autoLoad": true,
                 "autoRotate": 0,
-                "autoRotateInactivityDelay": 5000,
+                // "autoRotateInactivityDelay": 5000,
                 "yaw": 180,
                 // "hfov": 80,
                 "previewTitle": "{{ $museum->scenes()->first()->title }}",
@@ -35,44 +35,36 @@
 
             "scenes": {
                 @foreach($museum->scenes()->get() as $scene)
-                "{{ $scene->getKey() }}": {
+                "scene-{{ $scene->getKey() }}": {
                     "title": "{{ $scene->title }}",
                     "sceneId": "{{ $scene->getKey() }}",
                     "type": "equirectangular",
                     "panorama": "{{ $scene->panorama }}",
-                    // "hotSpotDebug": "true",
                     "hotSpots": [
-                        @foreach($scene->hotspots() as $hotspot)
+                        @foreach(@$scene->hotspots as $hotspot)
                         {
                             "pitch": {{ $hotspot->pitch }},
                             "yaw": {{ $hotspot->yaw }},
                             "type": "{{ $hotspot->type }}",
-                            "text": `"aboba" <br/> govno sjelo zhopu`,
-                            "clickHandlerFunc": function() {
-                                let mediaWindow = document.getElementById('panorama');
-                                mediaWindow.insertAdjacentHTML('afterbegin', description);
+                            "text": "{{ $hotspot->title }}",
+                            @if($hotspot->type === 'scene')
+                            "sceneId": "scene-{{ $hotspot->pointer_target }}",
+                            @endif
+                            @if($hotspot->type === 'info')
+                            "clickHandlerFunc": function () {
+                                const mediaWindow = document.getElementById('panorama');
+                                mediaWindow.insertAdjacentHTML('afterbegin', `{{ view('document', ['document' => $hotspot->document]) }}`);
 
-                                function audioPlay() {
-                                    new GreenAudioPlayer('.media-description-custom-audio');
+                                @if($hotspot->audio !== null)
+                                function audioPlay () {
+                                    new GreenAudioPlayer('.media-description-custom-audio')
                                 }
                                 audioPlay();
-                                },
+                                @endif
+                            },
+                            @endif
                         },
                         @endforeach
-                        {
-                            "pitch": -10,
-                            "yaw": -50,
-                            "type": "info",
-                            "text": "This is a link.",
-                            "URL": "https://github.com/mpetroff/pannellum"
-                        },
-                        {
-                            "pitch": -35,
-                            "yaw": 277,
-                            "type": "scene",
-                            "text": "Второй зал",
-                            "sceneId": "b-scene"
-                        }
                     ]
                 },
                 @endforeach
@@ -81,7 +73,6 @@
 
         export let viewer = pannellum.viewer('panorama', obj);
 
-        viewer.startOrientation()
         // Отслеживание смены сцены и смена радио
         viewer.on('scenechange', function(ev) {
             let hotSpot = document.getElementById(ev);
@@ -97,34 +88,6 @@
             let media1 = document.getElementById(id);
             media1.remove();
         }
-
-        let svgData = `<svg class="svg-sector" id="sector">
-<path fill="rgb(255,255,255)" fill-opacity="0.7" d="M 65.5,65.5 L 23.34187850181081,17.347193313951905 A 64,64 0 0 1 107.65812149818916,17.347193313951877 Z"></path>
-</svg>`;
-
-        viewer.on('scenechange', function(ev) {
-            let prePoint = document.getElementById('sector');
-            prePoint.remove();
-            let point = document.getElementById(ev);
-            point.insertAdjacentHTML("beforeend", svgData);
-        });
-
-
-        // Вращение сектора обзора
-
-        viewer.on('zoomchange', function() {
-            // console.log(viewer.getYaw())
-            let prPoint = document.getElementById('sector');
-            prPoint.style.transform = `rotate(${viewer.getYaw()+180}deg)`;
-        })
-        document.getElementsByClassName('pnlm-dragfix')[0].addEventListener('mousemove', function() {
-            let prPoint = document.getElementById('sector');
-            prPoint.style.transform = `rotate(${viewer.getYaw()+180}deg)`;
-        })
-        document.getElementsByClassName('pnlm-dragfix')[0].addEventListener('touchmove', function() {
-            let prPoint = document.getElementById('sector');
-            prPoint.style.transform = `rotate(${viewer.getYaw()+180}deg)`;
-        })
 
         function keysUp() {
             document.getElementById('pan-up').addEventListener('click', function(e) {
@@ -201,21 +164,27 @@
             <div class="ctrl ctrl-nav" id="fullscreen">&#x2922;</div>
         </div>
     </div>
-
+    <button class="map-toggle" onclick="toggleMap()">
+        <img src="{{ Storage::url('assets/map.svg') }}" alt="map" height="15px">
+    </button>
     <div class="map">
-        <div class="point" id="a-scene">
-            <input type="radio" name="radio-group" id="a-radio" checked>
-            <label for="1-radio">1</label>
-            <svg class="svg-sector" id="sector">
-                <path fill="rgb(255,255,255)" fill-opacity="0.7" d="M 65.5,65.5 L 23.34187850181081,17.347193313951905 A 64,64 0 0 1 107.65812149818916,17.347193313951877 Z"></path>
-            </svg>
+        @foreach($museum->scenes as $scene)
+        <div class="point" id="scene-{{ $scene->getKey() }}" style="position: absolute; top: {{ $scene->map_y-6 }}%; left: {{ $scene->map_x-2.5 }}%">
+            <input @if($scene->getKey() === $museum->scenes->first()->getKey()) checked @endif type="radio" name="radio-group" id="scene-{{ $scene->getKey() }}">
+            <label for="scene-{{ $scene->getKey() }}"></label>
         </div>
-        <div class="point" id="b-scene" style="position: absolute; top: 111px; left: 111px">
-            <input type="radio" name="radio-group" id="b-radio">
-            <label for="b-radio">2</label>
-        </div>
+        @endforeach
     </div>
 </div>
+<script>
+    if (/iPhone/ig.test(navigator.userAgent)) {
+        document.getElementById("panorama").style.maxHeight = "86.6vh";
+    }
+    const map = document.querySelector('.map');
+    function toggleMap () {
+        map.classList.toggle('map-toggle-on');
+    }
+</script>
 </body>
 
 </html>

@@ -109,8 +109,8 @@ return [
     */
 
     'resource' => [
-        'stylesheets' => [],
-        'scripts'     => [],
+        'stylesheets' => ['/dashboard/css/dashboard.css'],
+        'scripts'     => ['/dashboard/js/dashboard.js'],
     ],
 
     /*

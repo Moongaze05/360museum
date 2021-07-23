@@ -4,25 +4,35 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property string title
  * @property string type
  * @property double pitch
  * @property double yaw
+ * @property Scene target
+ * @property Document document
+ * @property Scene scene
  */
 class Hotspot extends Model
 {
     use HasFactory;
 
-    public function document(): HasOne
+    protected $guarded = [];
+
+    public function document(): BelongsTo
     {
-        return $this->hasOne(related: Document::class);
+        return $this->belongsTo(related: Document::class);
     }
 
-    public function target(): HasOne
+    public function target(): BelongsTo
     {
-        return $this->hasOne(related: Scene::class, localKey: 'pointer_target');
+        return $this->belongsTo(related: Scene::class, foreignKey: 'pointer_target');
+    }
+
+    public function scene(): BelongsTo
+    {
+        return $this->belongsTo(related: Scene::class);
     }
 }

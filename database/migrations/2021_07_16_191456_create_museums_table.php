@@ -13,13 +13,14 @@ class CreateMuseumsTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('museums', static function (Blueprint $table) {
+        Schema::create(table: 'museums', callback: static function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title');
-            $table->string('preview');
-            $table->string('logo');
-            $table->string('map');
+            $table->string(column: 'title');
+            $table->string(column: 'preview');
+            $table->string(column: 'logo');
+            $table->string(column: 'map');
+            $table->string(column: 'default_scene')->nullable();
         });
     }
 
@@ -30,6 +31,6 @@ class CreateMuseumsTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('museums');
+        Schema::dropIfExists(table: 'museums');
     }
 }

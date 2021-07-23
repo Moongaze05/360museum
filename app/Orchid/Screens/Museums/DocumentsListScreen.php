@@ -2,6 +2,8 @@
 
 namespace App\Orchid\Screens\Museums;
 
+use App\Models\Document;
+use App\Orchid\Layouts\Museums\DocumentsTable;
 use Orchid\Screen\Screen;
 
 class DocumentsListScreen extends Screen
@@ -27,7 +29,9 @@ class DocumentsListScreen extends Screen
      */
     public function query(): array
     {
-        return [];
+        return [
+            'documents' => Document::all()
+        ];
     }
 
     /**
@@ -47,6 +51,8 @@ class DocumentsListScreen extends Screen
      */
     public function layout(): array
     {
-        return [];
+        return [
+            DocumentsTable::class
+        ];
     }
 }

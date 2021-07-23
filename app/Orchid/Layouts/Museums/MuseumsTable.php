@@ -36,7 +36,7 @@ class MuseumsTable extends Table
                 ->render(static fn (Museum $museum) => $museum->scenes()->count()),
             TD::make(name: 'hotspots', title: 'Количество экспонатов')
                 ->render(static fn (Museum $museum)
-                => $museum->scenes->map(static fn (Scene $scene) => $scene->hotspots())->count()),
+                => $museum->scenes->sum(static fn (Scene $scene) => $scene->hotspots()->count())),
             TD::make('Действия')
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')

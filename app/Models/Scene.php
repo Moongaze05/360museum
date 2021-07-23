@@ -13,10 +13,14 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string panorama
  * @property Collection hotspots
  * @property Museum museum
+ * @property double map_x
+ * @property double map_y
  */
 class Scene extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 
     public function museum(): BelongsTo
     {

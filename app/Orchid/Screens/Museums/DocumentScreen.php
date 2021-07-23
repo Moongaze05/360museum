@@ -2,7 +2,10 @@
 
 namespace App\Orchid\Screens\Museums;
 
+use App\Models\Document;
+use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Layout;
 
 class DocumentScreen extends Screen
 {
@@ -11,22 +14,26 @@ class DocumentScreen extends Screen
      *
      * @var string
      */
-    public $name = 'DocumentScreen';
+    public $name = 'Документ';
 
     /**
      * Display header description.
      *
      * @var string|null
      */
-    public $description = 'DocumentScreen';
+    public $description = 'Создание нового документа';
 
     /**
      * Query data.
      *
      * @return array
      */
-    public function query(): array
+    public function query(Document $document): array
     {
+        if ($document->exists) {
+            $this->description = 'Редактирование документа';
+        }
+
         return [];
     }
 
@@ -47,6 +54,10 @@ class DocumentScreen extends Screen
      */
     public function layout(): array
     {
-        return [];
+        return [
+            Layout::rows([
+                Input::make('')
+            ])
+        ];
     }
 }

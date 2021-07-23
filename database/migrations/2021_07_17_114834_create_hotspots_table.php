@@ -15,15 +15,13 @@ class CreateHotspotsTable extends Migration
     {
         Schema::create(table: 'hotspots', callback: static function (Blueprint $table) {
             $table->id();
-            $table->string('scene_id');
-            $table->string('title');
-            $table->enum('type', ['info', 'scene'])->default('info');
-            $table->double('pitch');
-            $table->double('yaw');
-            $table->unsignedBigInteger('map_x');
-            $table->unsignedBigInteger('map_y');
-            $table->string('pointer_target')->nullable();
-            $table->string('document_id')->nullable();
+            $table->string(column: 'scene_id');
+            $table->string(column: 'title');
+            $table->enum(column: 'type', allowed: ['info', 'scene'])->default('info');
+            $table->double(column: 'pitch');
+            $table->double(column: 'yaw');
+            $table->string(column: 'pointer_target')->nullable();
+            $table->string(column: 'document_id')->nullable();
             $table->timestamps();
         });
     }

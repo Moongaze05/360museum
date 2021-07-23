@@ -15,9 +15,11 @@ class CreateScenesTable extends Migration
     {
         Schema::create(table: 'scenes', callback: static function (Blueprint $table) {
             $table->id();
-            $table->string('museum_id');
-            $table->string('title');
-            $table->string('panorama');
+            $table->string(column: 'museum_id');
+            $table->string(column: 'title');
+            $table->string(column: 'panorama');
+            $table->double(column: 'map_x')->nullable();
+            $table->double(column: 'map_y')->nullable();
             $table->timestamps();
         });
     }
