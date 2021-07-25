@@ -184,6 +184,12 @@
     function toggleMap () {
         map.classList.toggle('map-toggle-on');
     }
+    function toggleText(id) {
+        const mediaText = document.getElementById(id);
+        mediaText.classList.toggle('media-description-text-padding');
+        const mediaToggler = document.getElementById('toggler-text');
+        mediaToggler.classList.toggle('toggler-text-rotate');
+    }
 </script>
 </body>
 

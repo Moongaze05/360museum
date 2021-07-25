@@ -1,6 +1,7 @@
 @media (max-width:425px) {
     .header-flex {
-        max-width: 80vw;
+        max-width: 375px;
+        margin-left: 20px;
     }
     .logo img {
         width: 375px
@@ -9,24 +10,16 @@
         font-size: 45px;
     }
     .main {
-        /*margin-left: 6px*/
+        margin-left: 6px
     }
     .main-card img {
-        max-width: 80vw;
+        max-width: 320px;
     }
     .play {
-        left: 120px;
+        left: 110px;
         top: 50px;
     }
     .main-card-city {
         left: 121px;
     }
 }
-
-@media (max-width: 375px) {
-    .play {
-        left: 100px;
-        top: 40px;
-    }
-}
-

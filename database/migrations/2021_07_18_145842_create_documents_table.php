@@ -18,6 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->string(column: 'image');
             $table->string(column: 'title');
             $table->string(column: 'author');
+            $table->string(column: 'description')->nullable();
             $table->string(column: 'audio')->nullable();
             $table->timestamps();
         });

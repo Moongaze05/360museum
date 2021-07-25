@@ -23,6 +23,48 @@
     }
 }
 
+.media-description-text-left {
+    /*background-color: #AB2421;*/
+    width: 21vw;
+    height: 100%;
+    align-self: flex-start;
+    position: absolute;
+    color:#fefefe;
+    z-index: 2;
+    overflow: auto;
+    display: flex;
+    transition: .5s all;
+}
+.media-description-text-toggler {
+    position: absolute;
+    left:16vw;
+    top:10px;
+    cursor: pointer;
+    transition: .5s all;
+    font-size: 25px;
+    transform: rotate(270deg);
+}
+.toggler-text-rotate {
+    transition: .5s all;
+    transform: rotate(90deg);
+}
+.media-description-text-padding {
+    transform: translateX(-16.1vw);
+}
+.media-description-text-left-wrapper {
+    background-color: #AB2421;
+    height:100%;
+    width: 16vw;
+}
+
+.media-description-text-left-header {
+    padding:10px;
+}
+.media-description-text-left-p {
+    padding:10px;
+    background-color: inherit;
+}
+
 .media-picture {
     display: flex;
     justify-content: center;
@@ -82,6 +124,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-top:5px;
 }
 
 .green-audio-player {
@@ -129,7 +172,25 @@
 .green-audio-player .volume .volume__controls.bottom {
     bottom: 40px;
 }
-
+@media (max-width:1000px) {
+    .media-info {
+        overflow: auto;
+    }
+    .media-description-text-left {
+        width:35vw;
+        padding-left:27px;
+        height:100%
+    }
+    .media-description-text-left-wrapper {
+        width:30vw;
+    }
+    .media-description-text-toggler {
+        left:35vw;
+    }
+    .media-description-text-padding {
+        transform: translateX(-33.5vw);
+    }
+}
 @media (max-width:580px) {
     .media-description {
         flex-direction: column;
@@ -139,5 +200,21 @@
     }
     .media-button-cross {
         left: 94%;
+    }
+    .media-description-text-left {
+        width:72vw;
+        padding-left:0;
+    }
+    .media-description-text-left-wrapper {
+        width:65vw;
+    }
+    .media-description-text-toggler {
+        position: absolute;
+        top:10px;
+        left: 65vw;
+        font-size: 25px;
+    }
+    .media-description-text-padding {
+        transform: translateX(-65vw);
     }
 }
