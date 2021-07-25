@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Orchid\Screen\AsSource;
 
@@ -22,5 +23,10 @@ class Document extends Model
     public function hotspots(): HasMany
     {
         return $this->hasMany(related: Hotspot::class);
+    }
+
+    public function additional(): BelongsTo
+    {
+        return $this->belongsTo(related: __CLASS__, foreignKey: 'additional_id');
     }
 }

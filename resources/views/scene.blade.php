@@ -52,8 +52,16 @@
                             @endif
                             @if($hotspot->type === 'info')
                             "clickHandlerFunc": function () {
-                                const mediaWindow = document.getElementById('panorama');
-                                mediaWindow.insertAdjacentHTML('afterbegin', `{{ view('document', ['document' => $hotspot->document]) }}`);
+                                // const mediaWindow = document.getElementById('panorama');
+{{--                                mediaWindow.insertAdjacentHTML('afterbegin', `{{ view('document', ['document' => $hotspot->document]) }}`);--}}
+
+                                const infoWindow = document.getElementById('{{ $hotspot->document->getKey() }}');
+
+                                infoWindow.style.display = 'block';
+
+                                if(currentInfo.indexOf({{ $hotspot->document->getKey() }}) === -1) {
+                                    currentInfo.push({{ $hotspot->document->getKey() }});
+                                }
 
                                 @if($hotspot->audio !== null)
                                 function audioPlay () {
@@ -84,9 +92,12 @@
          * @param { String } id Id раскрывающегося описания
          */
 
-        function cross(id) {
+        window.cross = function cross(id) {
             let media1 = document.getElementById(id);
-            media1.remove();
+            media1.style.display = 'none';
+            if (currentInfo.indexOf(id) !== -1) {
+                currentInfo.push(id)
+            }
         }
 
         function keysUp() {
@@ -141,17 +152,21 @@
     </script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
     <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
-    <script>
-        function cross(id) {
-            let media1 = document.getElementById(id);
-            media1.remove();
-        }
-    </script>
 </head>
 
 <body>
 
 <div id="panorama">
+    @foreach($museum->scenes as $scene)
+        @foreach($scene->hotspots as $hotspot)
+            @if($hotspot->type === 'info')
+                @include('document', ['document' => $hotspot->document])
+                @if($hotspot->additional !== null)
+                    @include('document', ['document' => $hotspot->additional])
+                @endif
+            @endif
+        @endforeach
+    @endforeach
     <div id="controls">
         <div class="ctrl toggle-bar" id="toggle-bar">&#9661;</div>
         <div class="visible ctrl-toggle-on">
@@ -169,7 +184,7 @@
     </button>
     <div class="map">
         @foreach($museum->scenes as $scene)
-        <div class="point" id="scene-{{ $scene->getKey() }}" style="position: absolute; top: {{ $scene->map_y-6 }}%; left: {{ $scene->map_x-2.5 }}%">
+        <div class="point" id="scene-{{ $scene->getKey() }}" style="position: absolute; top: {{ $scene->map_y-3 }}%; left: {{ $scene->map_x-2.5 }}%">
             <input @if($scene->getKey() === $museum->scenes->first()->getKey()) checked @endif type="radio" name="radio-group" id="scene-{{ $scene->getKey() }}">
             <label for="scene-{{ $scene->getKey() }}"></label>
         </div>
@@ -177,10 +192,9 @@
     </div>
 </div>
 <script>
-    // if (/iPhone/ig.test(navigator.userAgent)) {
-    //     document.getElementById("panorama").style.maxHeight = "86.6vh";
-    // }
     const map = document.querySelector('.map');
+
+    window.currentInfo = [];
     function toggleMap () {
         map.classList.toggle('map-toggle-on');
     }
@@ -189,6 +203,12 @@
         mediaText.classList.toggle('media-description-text-padding');
         const mediaToggler = document.getElementById('toggler-text');
         mediaToggler.classList.toggle('toggler-text-rotate');
+    }
+    function showMoreInfo(id) {
+        document.getElementById(id).style.display = 'block';
+        if(currentInfo.indexOf(id) === -1) {
+            currentInfo.push(id);
+        }
     }
 </script>
 </body>

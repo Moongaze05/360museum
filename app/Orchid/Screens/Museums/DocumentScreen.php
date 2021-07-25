@@ -9,6 +9,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Screen;
@@ -93,6 +94,10 @@ class DocumentScreen extends Screen
                     Можно оставить пустым, тогда панель слева отображаться не будет')
                     ->rows(6)
                     ->placeholder('Какой-нибудь текст'),
+                Select::make('document.additional_id')
+                    ->fromModel(Document::class, 'title', 'id'),
+                Input::make('document.additional_x')->title('x'),
+                Input::make('document.additional_y')->title('y'),
                 Picture::make('document.image')
                     ->title('Изображение')
                     ->help('Изображение документа'),
