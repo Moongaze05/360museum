@@ -22,14 +22,12 @@
             <h4>{{ $document->author }}</h4>
         </div>
         <div class="media-picture">
-            @if($document->additional !== null)
-            <button class="media-info-additional" style="width: 10px;
-                       height: 20px;
-                       position: absolute;
-                       top: {{ $document->additional_y }}%;
-                       left: {{ $document->additional_x }}%"
-                    onclick="showMoreInfo({{ $document->additional->getKey() }})">a</button>
-            @endif
+            @foreach($document->additional as $additional)
+            <button class="media-info-additional" style="
+                       top: {{ $additional->parent_y }}%;
+                       left: {{ $additional->parent_x }}%;"
+                    onclick="showMoreInfo({{ $additional->getKey() }})">a</button>
+            @endforeach
             <img src="{{ $document->image }}" alt="{{ $document->title }} {{ $document->author }}" class='media-img'>
         </div>
     </div>

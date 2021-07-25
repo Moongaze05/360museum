@@ -20,9 +20,9 @@ class CreateDocumentsTable extends Migration
             $table->string(column: 'author');
             $table->string(column: 'description')->nullable();
             $table->string(column: 'audio')->nullable();
-            $table->double('additional_x')->nullable();
-            $table->double('additional_y')->nullable();
-            $table->double('additional_id')->nullable();
+            $table->double('parent_x')->nullable();
+            $table->double('parent_y')->nullable();
+            $table->double('parent_id')->nullable();
             $table->timestamps();
         });
     }

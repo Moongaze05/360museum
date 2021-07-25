@@ -492,6 +492,11 @@ body {
     align-items: center;
 }
 
+.media-info-additional {
+position: absolute;
+
+}
+
 @-webkit-keyframes turnOn {
     from {
         opacity: 0;
@@ -716,5 +721,6 @@ body {
         transform: translateX(-65vw);
     }
 }
+
 
 

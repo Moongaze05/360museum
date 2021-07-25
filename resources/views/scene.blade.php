@@ -57,7 +57,7 @@
 
                                 const infoWindow = document.getElementById('{{ $hotspot->document->getKey() }}');
 
-                                infoWindow.style.display = 'block';
+                                infoWindow.style.display = 'flex';
 
                                 if(currentInfo.indexOf({{ $hotspot->document->getKey() }}) === -1) {
                                     currentInfo.push({{ $hotspot->document->getKey() }});
@@ -161,9 +161,9 @@
         @foreach($scene->hotspots as $hotspot)
             @if($hotspot->type === 'info')
                 @include('document', ['document' => $hotspot->document])
-                @if($hotspot->additional !== null)
-                    @include('document', ['document' => $hotspot->additional])
-                @endif
+{{--                @if($hotspot->document?->additional?->count() !== 0)--}}
+                    @each('document', $hotspot->document->additional, 'document')
+{{--                @endif--}}
             @endif
         @endforeach
     @endforeach
@@ -205,7 +205,7 @@
         mediaToggler.classList.toggle('toggler-text-rotate');
     }
     function showMoreInfo(id) {
-        document.getElementById(id).style.display = 'block';
+        document.getElementById(id).style.display = 'flex';
         if(currentInfo.indexOf(id) === -1) {
             currentInfo.push(id);
         }

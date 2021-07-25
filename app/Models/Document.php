@@ -25,8 +25,8 @@ class Document extends Model
         return $this->hasMany(related: Hotspot::class);
     }
 
-    public function additional(): BelongsTo
+    public function additional(): HasMany
     {
-        return $this->belongsTo(related: __CLASS__, foreignKey: 'additional_id');
+        return $this->hasMany(related: __CLASS__, foreignKey: 'parent_id');
     }
 }

@@ -6,10 +6,10 @@ use App\Models\Document;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use JetBrains\PhpStorm\ArrayShape;
+use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
-use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Screen;
@@ -37,7 +37,7 @@ class DocumentScreen extends Screen
      * @param Document $document
      * @return array
      */
-    #[ArrayShape(['document' => "\App\Models\Document"])]
+    #[ArrayShape(['document' => Document::class])]
     public function query(Document $document): array
     {
         if ($document->exists) {
@@ -52,7 +52,7 @@ class DocumentScreen extends Screen
     /**
      * Button commands.
      *
-     * @return \Orchid\Screen\Action[]
+     * @return Action[]
      */
     public function commandBar(): array
     {
@@ -74,7 +74,7 @@ class DocumentScreen extends Screen
     /**
      * Views.
      *
-     * @return \Orchid\Screen\Layout[]|string[]
+     * @return array
      */
     public function layout(): array
     {
@@ -94,10 +94,6 @@ class DocumentScreen extends Screen
                     Можно оставить пустым, тогда панель слева отображаться не будет')
                     ->rows(6)
                     ->placeholder('Какой-нибудь текст'),
-                Select::make('document.additional_id')
-                    ->fromModel(Document::class, 'title', 'id'),
-                Input::make('document.additional_x')->title('x'),
-                Input::make('document.additional_y')->title('y'),
                 Picture::make('document.image')
                     ->title('Изображение')
                     ->help('Изображение документа'),
