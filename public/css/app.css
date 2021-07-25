@@ -451,8 +451,7 @@ body {
 }
 @media (max-width:425px) {
     .header-flex {
-        max-width: 375px;
-        margin-left: 20px;
+        max-width: 80vw;
     }
     .logo img {
         width: 375px
@@ -460,11 +459,9 @@ body {
     .logo-description {
         font-size: 45px;
     }
-    .main {
-        margin-left: 6px
-    }
+
     .main-card img {
-        max-width: 320px;
+        max-width: 80vw;
     }
     .play {
         left: 110px;
@@ -474,6 +471,7 @@ body {
         left: 121px;
     }
 }
+
 .media-info {
     position: absolute;
     top: 0;
@@ -561,11 +559,22 @@ position: absolute;
     display: flex;
     justify-content: center;
     margin-top: 2vh;
+    position: relative;
 }
 
 .media-img {
     max-width: 90vw;
     max-height: 80vh;
+}
+
+.media-info-additional-button {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 4px solid #fefefe;
+    border-radius: 15px;
+    background-color: #fefefe;
+    cursor: pointer;
 }
 
 .media-button-cross {
@@ -722,5 +731,7 @@ position: absolute;
     }
 }
 
-
+::-webkit-scrollbar {
+    display: none;
+}
 

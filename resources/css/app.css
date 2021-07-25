@@ -4,3 +4,8 @@
 @import "stylePad.css";
 @import "styleMobile.css";
 @import "descriptionStyle.css";
+
+
+::-webkit-scrollbar {
+    display: none;
+}

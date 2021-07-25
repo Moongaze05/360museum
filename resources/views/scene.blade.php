@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Example</title>
+    <title>{{ $museum->title }}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <script src="{{ mix('/js/app.js') }}"></script>
@@ -24,13 +24,14 @@
                 "autoLoad": true,
                 "autoRotate": 0,
                 // "autoRotateInactivityDelay": 5000,
-                "yaw": 180,
+                // "yaw": 180,
                 // "hfov": 80,
                 "previewTitle": "{{ $museum->scenes->sortBy('id')->first()->title }}",
                 "showControls": true,
                 "showZoomCtrl": false,
                 "showFullscreenCtrl": false,
                 "compass": false,
+                "minPitch": -75
             },
 
             "scenes": {
@@ -157,15 +158,8 @@
 <body>
 
 <div id="panorama">
-    @foreach($museum->scenes as $scene)
-        @foreach($scene->hotspots as $hotspot)
-            @if($hotspot->type === 'info')
-                @include('document', ['document' => $hotspot->document])
-{{--                @if($hotspot->document?->additional?->count() !== 0)--}}
-                    @each('document', $hotspot->document->additional, 'document')
-{{--                @endif--}}
-            @endif
-        @endforeach
+    @foreach(\App\Models\Document::all() as $document)
+        @include('document', ['document' => $document])
     @endforeach
     <div id="controls">
         <div class="ctrl toggle-bar" id="toggle-bar">&#9661;</div>

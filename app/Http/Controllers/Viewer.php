@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hotspot;
 use App\Models\Museum;
+use App\Models\Scene;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
