@@ -10,6 +10,7 @@ use Orchid\Screen\AsSource;
 
 /**
  * @property Collection hotspots
+ * @property null|string description
  */
 class Document extends Model
 {

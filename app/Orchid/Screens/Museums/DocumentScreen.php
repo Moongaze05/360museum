@@ -9,6 +9,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Layout;
@@ -86,6 +87,12 @@ class DocumentScreen extends Screen
                     ->title('Автор')
                     ->help('Автор документа (например, картины)')
                     ->placeholder('Василий Васильевич'),
+                TextArea::make('document.description')
+                    ->title('Описание')
+                    ->help('Описание, которое будет отображаться слева.
+                    Можно оставить пустым, тогда панель слева отображаться не будет')
+                    ->rows(6)
+                    ->placeholder('Какой-нибудь текст'),
                 Picture::make('document.image')
                     ->title('Изображение')
                     ->help('Изображение документа'),
