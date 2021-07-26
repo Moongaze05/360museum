@@ -20,9 +20,14 @@ class MuseumSeeder extends Seeder
         $this->saveZir();
     }
 
-    public function preview(): string
+    public function talPreview(): string
     {
         return Storage::url('assets/preview1.png');
+    }
+
+    public function zirPreview(): string
+    {
+        return Storage::url('assets/preview2.png');
     }
 
     public function logo(): string
@@ -33,7 +38,6 @@ class MuseumSeeder extends Seeder
     public function museumTemplate(): Museum
     {
         $museum = new Museum();
-        $museum->preview = $this->preview();
         $museum->logo = $this->logo();
         return $museum;
     }
@@ -96,6 +100,7 @@ class MuseumSeeder extends Seeder
     {
         $tal = $this->museumTemplate();
         $tal->title = 'г. Талица';
+        $tal->preview = $this->talPreview();
         $tal->map = $this->talMap();
         $tal->save();
         $this->museumScenes($tal, 'Талица', $this->talMapping, 'talPanorama');
@@ -125,6 +130,7 @@ class MuseumSeeder extends Seeder
     {
         $zir = $this->museumTemplate();
         $zir->title = 'д. Зырянка';
+        $zir->preview = $this->zirPreview();
         $zir->map = $this->zirMap();
         $zir->save();
         $this->museumScenes($zir, 'Зырянка', $this->zirMapping, 'zirPanorama');
