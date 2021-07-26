@@ -7,8 +7,6 @@
     height: 100%;
     background-color: #2b2a29;
     /* background-color: #AB2421; */
-    animation-duration: 1.5s;
-    animation-name: turnOn;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,15 +15,6 @@
 .media-info-additional {
 position: absolute;
 
-}
-
-@keyframes turnOn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 .media-description-text-left {
@@ -104,20 +93,6 @@ position: absolute;
 
 .media-button-cross:hover {
     fill: red;
-}
-
-.media-button-cross:active {
-    animation-duration: 1.5s;
-    animation-name: turnOut;
-}
-
-@keyframes turnOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
 }
 
 .media-description-wrapper {

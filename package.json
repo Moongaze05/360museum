@@ -16,6 +16,7 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "node-sass": "^6.0.1",
         "pannellum": "^2.5.6"
     }
 }

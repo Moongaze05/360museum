@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>{{ $museum->title }}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />--}}
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <script src="{{ mix('/js/app.js') }}"></script>
     <style>
@@ -13,7 +13,7 @@
             background-image: url({{ $museum->map }});
         }
     </style>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+{{--    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>--}}
     <script type="module">
         let obj = {
             "default": {
