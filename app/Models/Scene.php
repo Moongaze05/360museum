@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property Museum museum
  * @property double map_x
  * @property double map_y
+ * @property Group group
  */
 class Scene extends Model
 {
@@ -30,5 +31,10 @@ class Scene extends Model
     public function hotspots(): HasMany
     {
         return $this->hasMany(related: Hotspot::class);
+    }
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo(related: Group::class);
     }
 }
