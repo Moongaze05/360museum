@@ -66,8 +66,8 @@ class MuseumSeeder extends Seeder
                     'title' => "$title, зал #$key",
                 ]);
                 $group->save();
-                foreach ($mapping as $entry) {
-                    $scene = $newScene($key, $entry)->group()->associate($group);
+                foreach ($mapping as $item=>$entry) {
+                    $scene = $newScene($key+$item, $entry)->group()->associate($group);
                     $museum->scenes()->save($scene);
                 }
             }
