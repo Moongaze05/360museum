@@ -57,6 +57,7 @@ class MuseumSeeder extends Seeder
             return $scene;
         };
 
+        $global = 0;
         foreach ($mappings as $key=>$mapping) {
             if (is_float($mapping[0])) {
                 $scene = $newScene($key, $mapping)->group()->associate($outdoors);
@@ -66,11 +67,13 @@ class MuseumSeeder extends Seeder
                     'title' => "$title, зал #$key",
                 ]);
                 $group->save();
-                foreach ($mapping as $item=>$entry) {
-                    $scene = $newScene($key+$item, $entry)->group()->associate($group);
+                foreach ($mapping as $idx=>$entry) {
+                    $scene = $newScene($global, $entry)->group()->associate($group);
                     $museum->scenes()->save($scene);
+                    $global++;
                 }
             }
+            $global++;
         }
     }
 
