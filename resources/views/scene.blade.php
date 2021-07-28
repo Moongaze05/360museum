@@ -77,8 +77,6 @@
 
         // Отслеживание смены сцены и смена радио
         viewer.on('scenechange', function(ev) {
-            console.log(viewer.getScene())
-            console.log(ev)
             const hotSpot = document.getElementById(ev);
             hotSpot.firstElementChild.checked = true;
             const group = 'spot-'+hotSpot.firstElementChild.dataset.group;
