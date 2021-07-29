@@ -18,7 +18,6 @@
                 "autoRotate": 0,
                 // "autoRotateInactivityDelay": 5000,
                 // "yaw": 180,
-                // "hfov": 80,
                 "previewTitle": "{{ $museum->scenes->sortBy('id')->first()->title }}",
                 "showControls": true,
                 "showZoomCtrl": false,
@@ -72,7 +71,11 @@
                 @endforeach
             }
         }
-
+        if (/Mobile/ig.test(navigator.userAgent)) {
+            obj.default.hfov = 80;
+        } else {
+            obj.default.hfov = 120;
+        }
         export let viewer = pannellum.viewer('panorama', obj);
 
         // Отслеживание смены сцены и смена радио
