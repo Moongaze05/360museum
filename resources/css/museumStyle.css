@@ -313,9 +313,9 @@ img {
 @media (max-width: 425px) {
 
     .map-wrapper {
-    /*    height: -webkit-fill-available;*/
+        /*    height: -webkit-fill-available;*/
         margin-top: 0;
-    /*    width:100%;*/
+        /*    width:100%;*/
         right:0;
     }
 
@@ -326,8 +326,11 @@ img {
 
     .map-description-text {
         display:block;
-        font-size: 9px;
-        width:250px;
+        font-size: 8px;
+        width:255px;
+    }
+    .map-description-text h3 {
+        font-size:9px;
     }
     .map-description-text-pc {
         display: none;
@@ -355,9 +358,10 @@ img {
         display: block;
         position: absolute;
         top: 12px;
+        right:11px;
         border-radius: unset;
-        width: 46px;
-        height: 46px;
+        width: 42px;
+        height: 43px;
     }
 
     .map {
