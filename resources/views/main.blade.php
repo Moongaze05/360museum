@@ -24,18 +24,18 @@
 <main class="main">
     <div class="main-container">
         @foreach($museums as $museum)
-        <section class="main-card">
-            <a href="{{ route('museum', ['museum' => $museum]) }}">
+        <a href="{{ route('museum', ['museum' => $museum]) }}">
+            <section class="main-card">
                 <div class="main-card-img">
                     <img src="{{ $museum->preview }}" alt="first museum" class="main-card-img">
                     <img class="play" src="{{ Storage::url('assets/play.svg') }}" alt="">
                 </div>
-            </a>
-            <div class="main-card-description">
-                <img src="{{ $museum->logo }}" alt="description">
-                <h4 class="main-card-city">{{ $museum->title }}</h4>
+                <div class="main-card-description">
+                    <img src="{{ $museum->logo }}" alt="description">
+                    <h4 class="main-card-city">&thinsp;{{ $museum->title }}</h4>
             </div>
-        </section>
+            </section>
+        </a>
         @endforeach
     </div>
 

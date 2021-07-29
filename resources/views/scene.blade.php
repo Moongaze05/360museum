@@ -247,10 +247,12 @@
                 <img src="{{ Storage::url('assets/map.svg') }}" alt="map" height="15px">
             </button>
             <div class="map">
-                <div class="map-description-text">
-                    <h2>Музей разведчика Н.И.Кузнецова</h2>
-                    <h3>г. Талица</h3>
-                </div>
+                <a href="/" style="text-decoration: none">
+                    <div class="map-description-text">
+                        <h2>Музей разведчика Н.И.Кузнецова</h2>
+                        <h3>г. Талица</h3>
+                    </div>
+                </a>
                 <label for="open-list" class="label-open-list">
                     <input type="checkbox" name="open-list" id="open-list" style="position: absolute; top: 9999999px;">
                     <div class="select" id="select-list" tabindex="1">
