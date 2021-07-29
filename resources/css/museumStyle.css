@@ -326,8 +326,8 @@ img {
 
     .map-description-text {
         display:block;
-        font-size: 9px;
         width:250px;
+        font-size:8px
     }
     .map-description-text-pc {
         display: none;
