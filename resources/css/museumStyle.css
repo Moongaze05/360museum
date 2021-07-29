@@ -276,6 +276,7 @@ img {
 @media (max-width:1000px) {
     .map-toggle {
         display: block;
+        /*margin-top:10px;*/
         /*border: 3px solid #ccc;*/
         /*width: 28px;*/
         /*height: 28px;*/
@@ -291,6 +292,7 @@ img {
     .map {
         left: 70%;
         top: 1%;
+        /*margin-top:10px*/
         /*width: 225px;*/
         /*height: 275px;*/
     }
@@ -312,7 +314,7 @@ img {
 
     .map-wrapper {
     /*    height: -webkit-fill-available;*/
-    /*    margin-top: 0;*/
+        margin-top: 0;
     /*    width:100%;*/
         right:0;
     }
@@ -325,7 +327,7 @@ img {
     .map-description-text {
         display:block;
         font-size: 9px;
-        width:300px;
+        width:250px;
     }
     .map-description-text-pc {
         display: none;
@@ -352,9 +354,9 @@ img {
     .map-toggle {
         display: block;
         position: absolute;
-        top: 12.5px;
+        top: 12px;
         border-radius: unset;
-        width: 40px;
+        width: 46px;
         height: 46px;
     }
 
@@ -373,11 +375,11 @@ img {
     .map-pic {
         max-width: 300px;
         /*align-self: flex-end;*/
-        max-height: 85%;
+        max-height: 595px;
     }
     .map-toggle-on {
         display: flex;
-        /*align-items: flex-start;*/
+        align-items: flex-start;
     }
 
     .map-toggle-off {
