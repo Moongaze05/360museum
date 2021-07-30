@@ -30,15 +30,21 @@ html, body {
 
 .pnlm-orientation-button-inactive {
     /*background-position: 2px -155px;*/
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background-repeat: no-repeat;
-    background-color: rgba(171, 36, 33, 0.8);
+    background-color: rgba(154,33,30,.8);
     position: absolute;
     top:15px;
     background-image: url(../../storage/app/public/assets/compass.svg);
     background-position: center;
     background-size: 20px;
+    box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 0.3),
+    inset 0px 20px 10px -20px rgba(255, 255, 255, 0.12),
+    inset 0px -1.5px 3px rgba(255, 255, 255, 0.12),
+    inset 0px -3px 9px rgba(255, 255, 255, 0.24),
+    inset 0px 3px 6px rgba(255, 255, 255, 0.2);
+    border:none;
 }
 .pnlm-orientation-button-inactive:hover {
     background-color: rgba(171, 36, 33, 0.8);
@@ -135,7 +141,7 @@ html, body {
     cursor: pointer;
     margin-left:10px;
     box-shadow: inset 0px 0px 1px rgba(255, 255, 255, 0.3),
-    inset 0px 20px 100px -20px rgba(255, 255, 255, 0.12),
+    inset 0px 20px 10px -20px rgba(255, 255, 255, 0.12),
     inset 0px -1.5px 3px rgba(255, 255, 255, 0.12),
     inset 0px -3px 9px rgba(255, 255, 255, 0.24),
     inset 0px -20px 20px rgba(47, 47, 59, 0.5),
@@ -334,7 +340,8 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
         left:0;
     }
     .pnlm-orientation-button-inactive {
-        top:95px;
+        top:45px;
+        right:0vw;
     }
     body {
         position: fixed;
