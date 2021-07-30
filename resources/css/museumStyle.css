@@ -251,7 +251,7 @@ img {
     background: white;
 }
 
-[type=radio]:not(:checked):hover+label.point-label:before {
+input[type=radio]:not(:checked):hover+label.point-label:before {
     border: 3px solid #AB2421;
 }
 
