@@ -27,6 +27,16 @@ html, body {
     font-family: Gotham Pro;
 
 }
+
+.pnlm-orientation-button-inactive {
+    background-position: 2px -155px;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-color: rgba(171, 36, 33, 0.6);
+    position: absolute;
+    top:15px;
+}
 #controls {
     position: absolute;
     bottom: 0;
@@ -310,6 +320,9 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     #open-list {
         top: 100%;
         left:0;
+    }
+    .pnlm-orientation-button-inactive {
+        top:95px;
     }
 }
 @media (max-height: 425px) {
