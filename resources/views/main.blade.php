@@ -19,7 +19,7 @@
             <img src="{{ Storage::url('assets/logo2.svg') }}" alt="logo">
         </div>
         <h1 class="logo-description">Виртуальная экскурсия</h1>
-        <img class="logo-description-img" src="./storage/app/public/assets/logoname.svg" alt="logo">
+        <img class="logo-description-img" src="{{ Storage::url('assets/logoname.svg') }}" alt="logo">
     </div>
 </header>
 <main class="main">
