@@ -1,11 +1,11 @@
 @import "~pannellum/build/pannellum.css";
-@import "museumStyle.css";
 @import "style.css";
 @import "styleLaptop.css";
 @import "stylePad.css";
 @import "styleMobile.css";
 @import "descriptionStyle.css";
 @import "dropdownMenu.css";
+@import "museumStyle.css";
 
 ::-webkit-scrollbar {
     display: none;
