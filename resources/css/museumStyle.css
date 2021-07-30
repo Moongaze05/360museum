@@ -334,6 +334,9 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
         position: fixed;
         left:0;
     }
+    #panorama {
+        position: fixed;
+    }
     /*.map {*/
     /*    width: 250px;*/
     /*}*/
