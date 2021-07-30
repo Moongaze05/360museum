@@ -330,6 +330,10 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     .pnlm-orientation-button-inactive {
         top:95px;
     }
+    body {
+        position: fixed;
+        left:0;
+    }
     /*.map {*/
     /*    width: 250px;*/
     /*}*/
