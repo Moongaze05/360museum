@@ -268,8 +268,8 @@
                 <img src="{{ $museum->map }}" alt="map" class="map-pic">
                 @foreach($museum->scenes as $scene)
                     <div class="point" id="scene-{{ $scene->getKey() }}" style="position: absolute; top: {{ $scene->map_y+12 }}%; left: {{ $scene->map_x }}%">
-                        <input @once checked @endonce type="radio" name="radio-group" data-group="{{ $scene->group->getKey() }}" id="scene-{{ $scene->getKey() }}">
-                        <label class="point-label" for="scene-{{ $scene->getKey() }}"></label>
+                        <input @once checked @endonce type="radio" name="radio-group" data-group="{{ $scene->group->getKey() }}" id="radio-{{ $scene->getKey() }}">
+                        <label class="point-label" for="radio-{{ $scene->getKey() }}"></label>
                     </div>
                 @endforeach
             </div>
