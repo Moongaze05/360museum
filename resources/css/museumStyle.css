@@ -309,7 +309,7 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
 @media (max-height: 450px) {
     #open-list {
         position: absolute;
-        top: 185vh;
+        top: 110%;
         left:0;
     }
 }
@@ -318,6 +318,14 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     #open-list {
         position: absolute;
         top: 120%;
+        left:0;
+    }
+}
+
+@media (max-height: 330px) {
+    #open-list {
+        position: absolute;
+        top: 130%;
         left:0;
     }
 }
