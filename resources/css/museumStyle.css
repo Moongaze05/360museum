@@ -333,19 +333,19 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     /*.map {*/
     /*    width: 250px;*/
     /*}*/
-    .map-description-text {
-        display:block;
-        width:190px;
-    }
-    .map-description-text h2 {
-        font-size: 10px;
-    }
-    .map-description-text h3 {
-        font-size:9px;
-    }
-    .map-description-text-pc {
-        display:none;
-    }
+    /*.map-description-text {*/
+    /*    display:block;*/
+    /*    width:190px;*/
+    /*}*/
+    /*.map-description-text h2 {*/
+    /*    font-size: 10px;*/
+    /*}*/
+    /*.map-description-text h3 {*/
+    /*    font-size:9px;*/
+    /*}*/
+    /*.map-description-text-pc {*/
+    /*    display:none;*/
+    /*}*/
 }
 @media (max-height: 425px) {
     #open-list {
