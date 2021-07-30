@@ -16,7 +16,8 @@
         display:none;
     }
     .logo-description-img {
-display: block;
+display: flex;
+        width:380px;
     }
     .main-card {
         margin-bottom: 20px;
