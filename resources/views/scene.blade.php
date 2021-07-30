@@ -197,10 +197,12 @@
     @foreach(\App\Models\Document::all() as $document)
         @include('document', ['document' => $document])
     @endforeach
+    <a href="/">
         <div class="map-description-text-pc">
             <h2>Музей разведчика Н.И.Кузнецова</h2>
             <h3>{{ $museum->title }}</h3>
         </div>
+    </a>
         <div id="controls">
             <div class="ctrl toggle-bar" id="toggle-bar">
                 <img src="{{ Storage::url('assets/Polygon.svg') }}" alt="arrowdown">
@@ -257,7 +259,7 @@
                     </div>
                 </a>
                 <label for="open-list" class="label-open-list">
-                    <input type="checkbox" name="open-list" id="open-list" style="position: absolute; top: 9999999px;">
+                    <input type="checkbox" name="open-list" id="open-list">
                     <div class="select" id="select-list" tabindex="1">
                         @foreach($museum->scenes->map(fn(\App\Models\Scene $scene) => $scene->group)->unique()->all() as $group)
                             <input class="selectopt" name="test" type="radio" id="spot-{{ $group->getKey() }}" data-scene="{{ $group->scenes->first()->getKey() }}" @once checked @endonce>
