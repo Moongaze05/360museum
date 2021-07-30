@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>{{ $museum->title }}</title>
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/appPanorama.css') }}">
     <script src="{{ mix('/js/app.js') }}"></script>
     <script type="module">
         let obj = {
