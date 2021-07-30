@@ -330,6 +330,9 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     .pnlm-orientation-button-inactive {
         top:95px;
     }
+    .map {
+        width: 250px;
+    }
 }
 @media (max-height: 425px) {
     #open-list {
