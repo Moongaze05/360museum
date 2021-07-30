@@ -35,7 +35,7 @@ html, body {
     background-repeat: no-repeat;
     background-color: rgba(154,33,30,.8);
     position: absolute;
-    top:15px;
+    top:10px;
     background-image: url(../../storage/app/public/assets/compass.svg);
     background-position: center;
     background-size: 20px;
@@ -397,7 +397,9 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
 }
 
 @media (max-width: 425px) {
-
+.orientation-button {
+    display: none;
+}
     #open-list {
         left:9999px;
     }

@@ -251,7 +251,7 @@
             <button class="map-toggle" onclick="toggleMap()">
                 <img src="{{ Storage::url('assets/map.svg') }}" alt="map" height="15px">
             </button>
-            <div class="pnlm-orientation-button pnlm-orientation-button-inactive pnlm-sprite pnlm-controls pnlm-control" style="display: block"></div>
+            <div class="pnlm-orientation-button pnlm-orientation-button-inactive pnlm-sprite pnlm-controls pnlm-control orientation-button"></div>
             <div class="map">
                 <a href="/" style="text-decoration: none">
                     <div class="map-description-text">
