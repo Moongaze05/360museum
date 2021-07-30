@@ -1,0 +1,7 @@
+@import "~pannellum/build/pannellum.css";
+@import "descriptionStyle.css";
+@import "dropdownMenu.css";
+@import "museumStyle.css";
+::-webkit-scrollbar {
+    display: none;
+}
