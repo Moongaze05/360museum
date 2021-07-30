@@ -29,13 +29,14 @@ html, body {
 }
 
 .pnlm-orientation-button-inactive {
-    background-position: 2px -155px;
+    /*background-position: 2px -155px;*/
     width: 30px;
     height: 30px;
     background-repeat: no-repeat;
     background-color: rgba(171, 36, 33, 0.8);
     position: absolute;
     top:15px;
+    background-image: url('/assets/compass.svg');
 }
 .pnlm-orientation-button-inactive:hover {
     background-color: rgba(171, 36, 33, 0.8);
