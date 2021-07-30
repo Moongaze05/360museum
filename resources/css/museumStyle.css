@@ -37,6 +37,8 @@ html, body {
     position: absolute;
     top:15px;
     background-image: url(../../storage/app/public/assets/compass.svg);
+    background-position: center;
+    background-size: 20px;
 }
 .pnlm-orientation-button-inactive:hover {
     background-color: rgba(171, 36, 33, 0.8);
