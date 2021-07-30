@@ -306,7 +306,7 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
 .pnlm-render-container {
     background: black;
 }
-@media (max-height: 400px) {
+@media (max-height: 450px) {
     #open-list {
         position: absolute;
         top: 185vh;
@@ -314,7 +314,19 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     }
 }
 
+@media (max-height: 350px) {
+    #open-list {
+        position: absolute;
+        top: 120%;
+        left:0;
+    }
+}
+
 @media (max-width: 425px) {
+
+    #open-list {
+        left:9999px;
+    }
 
     .map-wrapper {
         /*    height: -webkit-fill-available;*/
