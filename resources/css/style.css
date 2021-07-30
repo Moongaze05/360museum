@@ -62,7 +62,9 @@ body {
     text-align: right;
     padding-bottom: 30px;
 }
-
+.logo-description-img {
+    display: none;
+}
 .main {
     margin-top: 20px;
 }

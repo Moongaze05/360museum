@@ -13,6 +13,10 @@
     }
     .logo-description {
         text-align: center;
+        display:none;
+    }
+    .logo-description-img {
+display: block;
     }
     .main-card {
         margin-bottom: 20px;
