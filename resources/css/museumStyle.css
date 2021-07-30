@@ -308,25 +308,36 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
 }
 @media (max-height: 450px) {
     #open-list {
-        position: absolute;
-        top: 110%;
+        top: 100%;
         left:0;
     }
 }
+@media (max-height: 425px) {
+    #open-list {
+        top: 105%;
+    }
+}
 
+@media (max-height: 415px) {
+    #open-list {
+        top: 110%;
+    }
+}
+
+@media (max-height: 375px) {
+    #open-list {
+        top: 120%;
+    }
+}
 @media (max-height: 350px) {
     #open-list {
-        position: absolute;
         top: 120%;
-        left:0;
     }
 }
 
 @media (max-height: 330px) {
     #open-list {
-        position: absolute;
         top: 130%;
-        left:0;
     }
 }
 
