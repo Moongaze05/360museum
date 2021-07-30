@@ -335,8 +335,10 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     /*}*/
     .map-description-text {
         display:block;
-        font-size: 8px;
-        width:255px;
+        width:190px;
+    }
+    .map-description-text h2 {
+        font-size: 10px;
     }
     .map-description-text h3 {
         font-size:9px;
