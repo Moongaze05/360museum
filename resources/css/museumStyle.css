@@ -411,6 +411,8 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     display: block;
     top:60px;
     right:10px;
+    width:42px;
+    height: 43px;
 }
     #open-list {
         left:9999px;
@@ -483,7 +485,7 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     .map-pic {
         max-width: 300px;
         /*align-self: flex-end;*/
-        max-height: 595px;
+        max-height: 615px;
     }
     .map-toggle-on {
         display: flex;
