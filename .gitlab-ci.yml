@@ -1,0 +1,24 @@
+tags:
+ - 360
+ - museums
+
+before_script:
+  - echo "Before script"
+  - cd /nginx/project
+building:
+  stage: build
+  script:
+    - composer install
+    - php artisan key:generate
+    - php artisan migrate --seed
+    - php artisan cache:clear
+    - php artisan config:clear
+    - php artisan storage:link
+testing:
+  stage: test
+  script:
+    - php ./vendor/bin/phpunit
+deploying:
+  stage: deploy
+  script:
+    - echo "Deployed"
