@@ -30,8 +30,8 @@ html, body {
 
 .pnlm-orientation-button-inactive {
     /*background-position: 2px -155px;*/
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 43px;
     background-repeat: no-repeat;
     background-color: rgba(154,33,30,.8);
     position: absolute;
@@ -45,9 +45,13 @@ html, body {
     inset 0px -3px 9px rgba(255, 255, 255, 0.24),
     inset 0px 3px 6px rgba(255, 255, 255, 0.2);
     border:none;
+    display: none;
 }
 .pnlm-orientation-button-inactive:hover {
     background-color: rgba(171, 36, 33, 0.8);
+}
+.orientation-button {
+    display:none;
 }
 #controls {
     position: absolute;
@@ -343,6 +347,11 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
         top:45px;
         right:0vw;
     }
+    .orientation-button {
+        display:block;
+        width:40px;
+        height: 40px;
+    }
     body {
         position: fixed;
         left:0;
@@ -397,8 +406,11 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
 }
 
 @media (max-width: 425px) {
+
 .orientation-button {
-    display: none;
+    display: block;
+    top:60px;
+    right:10px;
 }
     #open-list {
         left:9999px;
