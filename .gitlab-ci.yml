@@ -1,6 +1,7 @@
 stages:
   - build
   - test
+  - link
 
 before_script:
   - echo "Before script"
@@ -22,3 +23,10 @@ testing:
     - museums
   script:
     - php ./vendor/bin/phpunit
+
+linking:
+  stage: link
+  tags:
+    - museums
+  script:
+    - New-Item -Path C:\nginx\project\ -ItemType SymbolicLink -Value .
