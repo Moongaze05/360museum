@@ -20,6 +20,7 @@ class PannellumDebugger extends Field
         'height' => '500px',
         'hotspotsKey' => 'hotspots',
         'newHotspotKey' => 'hotspot',
+        'angleKey' => 'default_angle'
     ];
 
     protected $inlineAttributes = [
@@ -27,6 +28,7 @@ class PannellumDebugger extends Field
         'panorama',
         'settingsModal',
         'action',
+        'angle'
     ];
 
     public function hotspotsSerializeToFront(): static
@@ -53,6 +55,9 @@ class PannellumDebugger extends Field
         $this->hotspotsSerializeToFront();
         $key = $this->attributes['urlKey'];
         $this->attributes['scene'] = $this->attributes['value']['id'];
+
+        $angleKey =$this->attributes['angleKey'];
+        $this->attributes['angle'] = $this->attributes['value']->$angleKey;
 
         $this->attributes['panorama'] = $this->attributes['value']->$key;
         return parent::render();

@@ -59,8 +59,19 @@ class DocumentScreen extends Screen
         return [
             Button::make('Сохранить')
                 ->icon('save')
-                ->method('save')
+                ->method('save'),
+            Button::make('Удалить')
+                ->icon('trash')
+                ->method('delete')
         ];
+    }
+
+    public function delete(Document $document, Request $request): RedirectResponse
+    {
+        $document->hotspots()->delete();
+        $document->delete();
+
+        return redirect()->route('museums.documents.all');
     }
 
     public function save(Document $document, Request $request): RedirectResponse
