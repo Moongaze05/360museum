@@ -35,6 +35,15 @@ linking:
     - museums
   script:
     - New-Item -Path C:\nginx\project\ -ItemType SymbolicLink -Value .
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'production'
+
+storage_link:
+  stage: link
+  allow_failure: true
+  tags:
+    - museums
+  script: 
     - New-Item -Path C:\nginx\project\public\storage\ -ItemType SymbolicLink -Value .\storage\app\public
   rules:
     - if: $CI_COMMIT_BRANCH == 'production'
