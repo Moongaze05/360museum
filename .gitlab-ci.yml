@@ -3,6 +3,12 @@ stages:
   - test
   - link
 
+cache: 
+  paths:
+    - vendor
+    - node_modules
+    - .env
+
 before_script:
   - echo "Before script"
   - cd /nginx/project
