@@ -339,6 +339,14 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     background: black;
 }
 @media (max-height: 450px) {
+    .map {
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        left:0;
+    }
+    .map-pic {
+        /*position: relative;*/
+    }
     #open-list {
         top: 100%;
         left:0;
