@@ -8,6 +8,7 @@ cache:
     - vendor
     - node_modules
     - .env
+  key: $CI_COMMIT_REF_SLUG
 
 before_script:
   - echo "Before script"
