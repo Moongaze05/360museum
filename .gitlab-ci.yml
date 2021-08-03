@@ -23,7 +23,6 @@ building:
     - php artisan migrate:fresh --seed
     - php artisan cache:clear
     - php artisan config:clear
-    - New-Item -Path C:\nginx\project\public\storage -ItemType SymbolicLink -Value .\storage\app\public
   rules:
     - if: $CI_COMMIT_BRANCH == 'production'
 testing:
@@ -40,5 +39,6 @@ linking:
     - museums
   script:
     - New-Item -Path C:\nginx\project\ -ItemType SymbolicLink -Value .
+    - New-Item -Path C:\nginx\project\public\storage\ -ItemType SymbolicLink -Value .\storage\app\public
   rules:
     - if: $CI_COMMIT_BRANCH == 'production'
