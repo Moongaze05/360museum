@@ -11,7 +11,7 @@
         let obj = {
             "default": {
                 "load": true,
-                "author": "easycg",
+                // "author": "easycg",
                 "firstScene": "scene-{{ $museum->scenes->sortBy('id')->first()->getKey() }}",
                 "sceneFadeDuration": 2000,
                 "autoLoad": true,
