@@ -40,3 +40,5 @@ linking:
     - museums
   script:
     - New-Item -Path C:\nginx\project\ -ItemType SymbolicLink -Value .
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'production'
