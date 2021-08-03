@@ -128,8 +128,8 @@ return [
     */
 
     'template' => [
-        'header' => null,
-        'footer' => null,
+        'header' => 'dashboard.header',
+        'footer' => 'dashboard.footer',
     ],
 
     /*
