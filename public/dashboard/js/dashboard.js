@@ -14,6 +14,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -47,11 +53,66 @@ var _default = /*#__PURE__*/function (_window$Controller) {
 
   _createClass(_default, [{
     key: "connect",
-    value: function connect() {}
+    value: function connect() {
+      var _this = this;
+
+      this.mapTarget.addEventListener('mousedown', function (ev) {
+        if (ev.target !== _this.mapTarget.querySelector('#map-image')) {
+          return;
+        }
+
+        _this.targetXTarget.value = ev.offsetX / _this.mapTarget.offsetWidth * 100;
+        _this.targetYTarget.value = ev.offsetY / _this.mapTarget.offsetHeight * 100;
+
+        _this.openModal();
+      });
+      document.querySelectorAll('.mapper-map__point').forEach(function (el) {
+        el.addEventListener('mousedown', function () {
+          window.location = "/admin/document/".concat(el.id);
+        });
+      });
+    }
+  }, {
+    key: "openModal",
+    value: function openModal() {
+      var _this2 = this;
+
+      var form = this.modal.firstElementChild.firstElementChild;
+      this.application.getControllerForElementAndIdentifier(this.modal, 'modal').open({
+        title: this.data.get('title') || this.modal.dataset.modalTitle,
+        submit: this.data.get('action'),
+        params: this.data.get('params', '[]')
+      });
+      form.addEventListener('submit', function (ev) {
+        var _iterator = _createForOfIteratorHelper(_this2.constructor.targets),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var target = _step.value;
+
+            if (target === 'map') {
+              continue;
+            }
+
+            form.append(_this2["".concat(target, "Target")].cloneNode());
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      });
+    }
+  }, {
+    key: "modal",
+    get: function get() {
+      return document.getElementById("screen-modal-".concat(this.data.get('modal')));
+    }
   }], [{
     key: "targets",
     get: function get() {
-      return [];
+      return ['map', 'targetX', 'targetY', 'parent_id'];
     }
   }]);
 
