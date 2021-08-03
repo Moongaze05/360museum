@@ -329,6 +329,7 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
         top: 1%;
         overflow-x: hidden;
         overflow-y: scroll;
+        overscroll-behavior: contain;
         /*margin-top:10px*/
         /*width: 225px;*/
         /*height: 275px;*/
@@ -339,6 +340,14 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
     background: black;
 }
 @media (max-height: 450px) {
+    .map {
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        left:0;
+    }
+    .map-pic {
+        /*position: relative;*/
+    }
     #open-list {
         top: 100%;
         left:0;
@@ -352,10 +361,10 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
         width:40px;
         height: 40px;
     }
-    body {
-        position: fixed;
-        left:0;
-    }
+    /*body {*/
+    /*    position: fixed;*/
+    /*    left:0;*/
+    /*}*/
     #panorama {
         position: fixed;
     }
@@ -395,7 +404,7 @@ input[type=radio]:not(:checked):hover+label.point-label:before {
 }
 @media (max-height: 350px) {
     #open-list {
-        top: 120%;
+        top: 125%;
     }
 }
 
