@@ -18,6 +18,7 @@ class CreateScenesTable extends Migration
             $table->string(column: 'museum_id');
             $table->string(column: 'title');
             $table->string(column: 'panorama');
+            $table->double(column: 'default_angle')->default(0);
             $table->double(column: 'map_x')->nullable();
             $table->double(column: 'map_y')->nullable();
             $table->string(column: 'group_id')->nullable();

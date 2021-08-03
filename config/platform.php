@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'index' => 'platform.main',
+    'index' => 'museums.all',
 
     /*
     |--------------------------------------------------------------------------
@@ -128,8 +128,8 @@ return [
     */
 
     'template' => [
-        'header' => null,
-        'footer' => null,
+        'header' => 'dashboard.header',
+        'footer' => 'dashboard.footer',
     ],
 
     /*

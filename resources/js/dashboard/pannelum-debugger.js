@@ -5,7 +5,8 @@ export default class extends window.Controller {
         return [
             'pitch',
             'yaw',
-            'scene'
+            'scene',
+            'angle'
         ];
     }
 
@@ -22,6 +23,8 @@ export default class extends window.Controller {
                 'panorama': this.data.get('panorama'),
             };
 
+            const initialAngle = parseFloat(this.angleTarget.value);
+
             const viewer = pannellum.viewer(container, {
                 'type': 'equirectangular',
                 'panorama': panorama,
@@ -29,6 +32,8 @@ export default class extends window.Controller {
                 'firstScene': 'editor',
                 'scenes': {'editor': scene}
             });
+
+            viewer.setYaw(initialAngle, true);
 
             for (let hotspot of this.hotspots) {
                 hotspot['clickHandlerFunc'] = function () {
@@ -38,6 +43,10 @@ export default class extends window.Controller {
             }
 
             const viewerElement = document.getElementById(container);
+
+            viewer.on('animatefinished', (ev) => {
+                this.angleTarget.value = viewer.getYaw();
+            });
 
             viewerElement.addEventListener('contextmenu', (ev) => this.openModal(ev, viewer));
         }, 200)

@@ -10,4 +10,5 @@
     <input id="pitch" class="pnldbg-target-input" name="{{ $newHotspotKey }}[pitch]" hidden data-pnldbg-target="pitch">
     <input id="yaw" class="pnldbg-target-input" name="{{ $newHotspotKey }}[yaw]" hidden data-pnldbg-target="yaw">
     <input id="scene" class="pnldbg-target-input" name="{{ $newHotspotKey }}[scene]" value="{{ $scene }}" hidden data-pnldbg-target="scene">
+    <input id="angle" class="pnldbg-target-input" name="scene[{{ $angleKey }}]" value="{{ $angle }}" hidden data-pnldbg-target="angle">
 </div>
