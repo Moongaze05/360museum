@@ -21,8 +21,6 @@ building:
     - cp .env.example .env
     - php artisan key:generate
     - php artisan migrate:fresh --seed
-    - php artisan cache:clear
-    - php artisan config:clear
   rules:
     - if: $CI_COMMIT_BRANCH == 'production'
 testing:
@@ -38,7 +36,9 @@ linking:
   tags:
     - museums
   script:
+    - rm C:\nginx\project
     - New-Item -Path C:\nginx\project\ -ItemType SymbolicLink -Value .
+    - rm C:\nginx\project\public\storage
     - New-Item -Path C:\nginx\project\public\storage\ -ItemType SymbolicLink -Value .\storage\app\public
   rules:
     - if: $CI_COMMIT_BRANCH == 'production'
