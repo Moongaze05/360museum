@@ -10,9 +10,6 @@ cache:
     - .env
   key: $CI_COMMIT_REF_SLUG
 
-before_script:
-  - echo "Before script"
-  - cd /nginx/project
 building:
   stage: build
   tags: 
