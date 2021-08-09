@@ -44,6 +44,7 @@ storage_link:
   tags:
     - museums
   script: 
+    - cd C:\nginx\project
     - New-Item -Path C:\nginx\project\public\storage\ -ItemType SymbolicLink -Value .\storage\app\public
   rules:
     - if: $CI_COMMIT_BRANCH == 'production'
